@@ -104,7 +104,7 @@ public final class CreateTableStatementAnalyzer {
                     def.type() == null ? null : def.type().map(exprMapper),
                     analyzedColumnConstraints,
                     false,
-                    false);
+                    def.isGenerated());
             }
             analyzed.put(analyzedTe == null ? te.map(exprMapper) : analyzedTe, te);
         }

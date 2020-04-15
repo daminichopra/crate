@@ -1087,6 +1087,8 @@ public class CreateAlterTableStatementAnalyzerTest extends CrateDummyClusterServ
 
     @Test
     public void testCreateTableGeneratedColumnBasedOnGeneratedColumn() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("A generated column cannot be based on a generated column");
         analyze(
             "create table foo (" +
             "   ts timestamp with time zone," +
