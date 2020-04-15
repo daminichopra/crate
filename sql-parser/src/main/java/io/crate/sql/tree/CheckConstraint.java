@@ -21,9 +21,8 @@
 
 package io.crate.sql.tree;
 
-import com.google.common.base.Objects;
-
 import javax.annotation.Nullable;
+import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
@@ -63,7 +62,7 @@ public class CheckConstraint<T> extends TableElement<T> {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(name, columnName, expression);
+        return Objects.hash(name, columnName, expression);
     }
 
     @Override
@@ -75,9 +74,9 @@ public class CheckConstraint<T> extends TableElement<T> {
             return false;
         }
         CheckConstraint that = (CheckConstraint) o;
-        return Objects.equal(expression, that.expression) &&
-               Objects.equal(name, that.name) &&
-               Objects.equal(columnName, that.columnName);
+        return Objects.equals(expression, that.expression) &&
+               Objects.equals(name, that.name) &&
+               Objects.equals(columnName, that.columnName);
     }
 
     @Override

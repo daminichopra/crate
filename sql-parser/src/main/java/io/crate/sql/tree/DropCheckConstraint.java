@@ -21,7 +21,7 @@
 
 package io.crate.sql.tree;
 
-import com.google.common.base.Objects;
+import java.util.Objects;
 
 public class DropCheckConstraint<T> extends Statement {
 
@@ -48,7 +48,7 @@ public class DropCheckConstraint<T> extends Statement {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(table, name);
+        return Objects.hash(table, name);
     }
 
     @Override
@@ -60,7 +60,8 @@ public class DropCheckConstraint<T> extends Statement {
             return false;
         }
         DropCheckConstraint<T> that = (DropCheckConstraint<T>) obj;
-        return name.equals(that.name) && table.equals(that.table);
+        return Objects.equals(name, that.name) &&
+               Objects.equals(table, that.table);
 
     }
 
